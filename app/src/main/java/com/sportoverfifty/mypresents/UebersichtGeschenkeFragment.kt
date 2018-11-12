@@ -1,6 +1,7 @@
 package com.sportoverfifty.mypresents
 
 
+
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
@@ -42,15 +43,19 @@ class UebersichtGeschenkeFragment : Fragment() {
         // Inflate the layout for this fragment
         val mView = inflater?.inflate(R.layout.fragment_uebersicht_geschenke,container,false)
         mListeView = mView?.findViewById<ListView>(R.id.listUebersichtGeschenke)
-        return inflater.inflate(R.layout.fragment_uebersicht_geschenke, container, false)
+        return mView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val listeneintrag = ArrayList<GiftObject>()
 //GiftObject (val id: Int, val name: String, val gekauft: Boolean, val shop: String, val beschreibung: String, val bild : Drawable, val geschenkFuer: String)
-        listeneintrag.add(GiftObject(id =1, name ="Taschenlampe", gekauft =false, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = ContextCompat.getDrawable(context, R.drawable.shopping), geschenkFuer ="Marius"))
+        listeneintrag.add(GiftObject(id =1, name ="Taschenlampe", gekauft =false, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Marius"))
+        listeneintrag.add(GiftObject(id =2, name ="Bett", gekauft =true, shop ="Bettenhaus", beschreibung = "Schlaf gut", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Wolfgang"))
+        listeneintrag.add(GiftObject(id =3, name ="Fahrrad", gekauft =false, shop ="Fahrrad.de", beschreibung = "MTB", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Jakob"))
+        listeneintrag.add(GiftObject(id =4, name ="Helm", gekauft =false, shop ="Fahrrad.de", beschreibung = "Integralhelm", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Konstantin"))
 
+        mListeView?.adapter = ShoppingListAdapter(context!!,listeneintrag)
     }
 
     companion object {
