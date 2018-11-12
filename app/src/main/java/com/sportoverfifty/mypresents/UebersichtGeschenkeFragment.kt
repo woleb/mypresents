@@ -3,9 +3,11 @@ package com.sportoverfifty.mypresents
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,6 +25,7 @@ class UebersichtGeschenkeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var mListeView: ListView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +40,18 @@ class UebersichtGeschenkeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        val mView = inflater?.inflate(R.layout.fragment_uebersicht_geschenke,container,false)
+        mListeView = mView?.findViewById<ListView>(R.id.listUebersichtGeschenke)
         return inflater.inflate(R.layout.fragment_uebersicht_geschenke, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val listeneintrag = ArrayList<GiftObject>()
+//GiftObject (val id: Int, val name: String, val gekauft: Boolean, val shop: String, val beschreibung: String, val bild : Drawable, val geschenkFuer: String)
+        listeneintrag.add(GiftObject(id =1, name ="Taschenlampe", gekauft =false, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = ContextCompat.getDrawable(context, R.drawable.shopping), geschenkFuer ="Marius"))
+
+    }
 
     companion object {
         /**

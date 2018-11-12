@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">my presents</string>
     <string name="title_home">Meine Geschenke</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="shoppinglist">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
     <!-- TODO: Remove or change this placeholder text -->

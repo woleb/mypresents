@@ -7,18 +7,28 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    val mManger = supportFragmentManager
+    val shoppingFragment = ShoppingFragment()
+    val uebersichtGeschenkeFragment = UebersichtGeschenkeFragment()
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_giftlist -> {
-
+                val mTransaction = mManger.beginTransaction()
+                mTransaction.replace(R.id.contentArea,uebersichtGeschenkeFragment)
+                mTransaction.addToBackStack(null)
+                mTransaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
-
+            R.id.navigation_shoppinglist -> {
+                val mTransaction = mManger.beginTransaction()
+                mTransaction.replace(R.id.contentArea,shoppingFragment)
+                mTransaction.addToBackStack(null)
+                mTransaction.commit()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                
+
                 return@OnNavigationItemSelectedListener true
             }
         }
