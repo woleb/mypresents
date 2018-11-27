@@ -42,15 +42,18 @@ class UebersichtGeschenkeFragment : Fragment() {
         // Inflate the layout for this fragment
         val mView = inflater?.inflate(R.layout.fragment_uebersicht_geschenke,container,false)
         mListeView = mView?.findViewById<ListView>(R.id.listUebersichtGeschenke)
-        return inflater.inflate(R.layout.fragment_uebersicht_geschenke, container, false)
+        return mView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val listeneintrag = ArrayList<GiftObject>()
 //GiftObject (val id: Int, val name: String, val gekauft: Boolean, val shop: String, val beschreibung: String, val bild : Drawable, val geschenkFuer: String)
-        listeneintrag.add(GiftObject(id =1, name ="Taschenlampe", gekauft =false, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = ContextCompat.getDrawable(context, R.drawable.shopping), geschenkFuer ="Marius"))
-
+        listeneintrag.add(GiftObject(id =1, name ="Taschenlampe", gekauft =false, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Marius"))
+        listeneintrag.add(GiftObject(id =2, name ="Flasche", gekauft =false, shop ="Globetrotter", beschreibung = "Lampe für's Wandern", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Marius"))
+        listeneintrag.add(GiftObject(id =3, name ="MTB", gekauft =false, shop ="Fahrrad.de", beschreibung = "Lampe für's Wandern", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Marius"))
+        listeneintrag.add(GiftObject(id =4, name ="Surfboard", gekauft =false, shop ="Surfdome", beschreibung = "Lampe für's Wandern", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Marius"))
+        mListeView?.adapter = ShoppingListAdapter(context!!, listeneintrag)
     }
 
     companion object {
