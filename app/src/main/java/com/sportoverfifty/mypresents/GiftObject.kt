@@ -3,7 +3,7 @@ package com.sportoverfifty.mypresents
 import android.graphics.drawable.Drawable
 import android.provider.BaseColumns
 
-data class GiftObject (val id: Int, val name: String, val gekauft: Boolean, val shop: String, val beschreibung: String, val bild: Drawable?, val geschenkFuer: String)
+data class GiftObject (val id: Int, val name: String, val gekauft: Boolean, val shop: String, val beschreibung: String, val bild: Int?, val geschenkFuer: String)
 
 object databaseValues : BaseColumns{
     val DATABASE_NAME = "giftdb"
