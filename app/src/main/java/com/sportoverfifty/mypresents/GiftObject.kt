@@ -8,6 +8,7 @@ data class GiftObject (val id: Int, val name: String, val gekauft: Boolean, val 
 object databaseValues : BaseColumns{
     val DATABASE_NAME = "giftdb"
     val DATABASE_VERSION = 1
+    val TABLE_NAME = "gifttabelle"
     val ID = "_id"
     val NAME = "name"
     val GEKAUFT = "gekauft"
