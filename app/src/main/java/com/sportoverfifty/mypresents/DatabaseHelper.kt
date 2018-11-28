@@ -10,7 +10,7 @@ class DatabaseHelper(context: Context):SQLiteOpenHelper(context,
     null,
     databaseValues.DATABASE_VERSION){
 
-    val tabelle = "CREATE TABLE gifttabelle (_id INTEGER PRIMARY KEY, name TEXT, gekauft BOOLEAN, shop TEXT, beschreibung TEXT, bildid INTEGER, geschenkfuer TEXT);"
+    val tabelle = "CREATE TABLE gifttabelle (_id INTEGER PRIMARY KEY, name TEXT, gekauft INTEGER, shop TEXT, beschreibung TEXT, bildid INTEGER, geschenkfuer TEXT);"
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(tabelle)

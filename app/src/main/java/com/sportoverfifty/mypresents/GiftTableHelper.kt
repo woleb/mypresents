@@ -36,4 +36,27 @@ class GiftTableHelper(context: Context){
         return id
 
     }
+
+    fun alleEintraege(){
+
+        val auswahl= arrayOf(databaseValues._ID,databaseValues.NAME,databaseValues.BESCHREIBUNG,databaseValues.BILD_ID,databaseValues.GEKAUFT,databaseValues.GESCHECK_FUER,databaseValues.SHOP)
+
+        val db = helper.readableDatabase
+        val cursor = db.query(databaseValues.TABLE_NAME,auswahl, null, null,null,null,null)
+        var giftDaten = GiftObject(0,"",0,"","",0,"")
+        Log.i("test", "Leeres Object: ${giftDaten.toString()}")
+
+        while (cursor.moveToNext()){
+            giftDaten.id = cursor.getInt(cursor.getColumnIndex(databaseValues._ID))
+            giftDaten.beschreibung = cursor.getString(cursor.getColumnIndex(databaseValues.BESCHREIBUNG))
+            giftDaten.bild = cursor.getInt(cursor.getColumnIndex(databaseValues.BILD_ID))
+            giftDaten.gekauft = cursor.getInt(cursor.getColumnIndex(databaseValues.GEKAUFT))
+            giftDaten.geschenkFuer = cursor.getString(cursor.getColumnIndex(databaseValues.GESCHECK_FUER))
+            giftDaten.name = cursor.getString(cursor.getColumnIndex(databaseValues.NAME))
+            giftDaten.shop = cursor.getString(cursor.getColumnIndex(databaseValues.SHOP))
+            Log.i("test", "Datensatz abgerufen ${giftDaten.toString()}")
+        }
+        cursor.close()
+    }
+
 }

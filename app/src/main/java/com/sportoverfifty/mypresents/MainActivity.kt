@@ -45,9 +45,11 @@ class MainActivity : AppCompatActivity() {
 
         val bildId = applicationContext.resources.getIdentifier("shopping","drawable",applicationContext.getPackageName())
         Log.i("test","BildID: $bildId")
-        val neuenDatensatz = GiftObject(id =1, name ="Taschenlampe", gekauft =false, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = bildId, geschenkFuer ="Marius")
+        val neuenDatensatz = GiftObject(id =1, name ="Taschenlampe", gekauft = 0, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = bildId, geschenkFuer ="Marius")
 
         val dataId = GiftTableHelper(applicationContext).speichereNeuenEintrag(neuenDatensatz)
         Log.i("test","Gepeichert: $dataId")
+
+        GiftTableHelper(applicationContext).alleEintraege()
     }
 }
