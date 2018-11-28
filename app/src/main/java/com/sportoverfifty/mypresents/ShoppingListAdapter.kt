@@ -23,7 +23,7 @@ class ShoppingListAdapter (context: Context, items: ArrayList<GiftObject>): Base
         val title = inflator.findViewById<TextView>(R.id.textViewProduct)
         val bild = inflator.findViewById<ImageView>(R.id.imageViewCat)
         title.text = items.get(position).name
-        bild.setImageDrawable(items.get(position).bild)
+        bild.setImageResource(items.get(position).bild)
         return inflator
     }
 

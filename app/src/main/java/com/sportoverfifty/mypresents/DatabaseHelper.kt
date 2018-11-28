@@ -14,7 +14,7 @@ class DatabaseHelper(context: Context):SQLiteOpenHelper(context,
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(tabelle)
-        Log.i("test", "angelegt!")
+        Log.i("test", "Tabelle angelegt!")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

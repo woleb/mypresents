@@ -2,7 +2,9 @@ package com.sportoverfifty.mypresents
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -40,5 +42,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        val bildId = applicationContext.resources.getIdentifier("shopping","drawable",applicationContext.getPackageName())
+        Log.i("test","BildID: $bildId")
+        val neuenDatensatz = GiftObject(id =1, name ="Taschenlampe", gekauft =false, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = bildId, geschenkFuer ="Marius")
+
+        val dataId = GiftTableHelper(applicationContext).speichereNeuenEintrag(neuenDatensatz)
+        Log.i("test","Gepeichert: $dataId")
     }
 }

@@ -49,10 +49,10 @@ class UebersichtGeschenkeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val listeneintrag = ArrayList<GiftObject>()
 //GiftObject (val id: Int, val name: String, val gekauft: Boolean, val shop: String, val beschreibung: String, val bild : Drawable, val geschenkFuer: String)
-        listeneintrag.add(GiftObject(id =1, name ="Taschenlampe", gekauft =false, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Marius"))
-        listeneintrag.add(GiftObject(id =2, name ="Bett", gekauft =true, shop ="Bettenhaus", beschreibung = "Schlaf gut", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Wolfgang"))
-        listeneintrag.add(GiftObject(id =3, name ="Fahrrad", gekauft =false, shop ="Fahrrad.de", beschreibung = "MTB", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Jakob"))
-        listeneintrag.add(GiftObject(id =4, name ="Helm", gekauft =false, shop ="Fahrrad.de", beschreibung = "Integralhelm", bild = ContextCompat.getDrawable(context!!, R.drawable.shopping), geschenkFuer ="Konstantin"))
+        listeneintrag.add(GiftObject(id =1, name ="Taschenlampe", gekauft =false, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = 2131230843, geschenkFuer ="Marius"))
+        listeneintrag.add(GiftObject(id =2, name ="Bett", gekauft =true, shop ="Bettenhaus", beschreibung = "Schlaf gut", bild = 2131230843, geschenkFuer ="Wolfgang"))
+        listeneintrag.add(GiftObject(id =3, name ="Fahrrad", gekauft =false, shop ="Fahrrad.de", beschreibung = "MTB", bild =2131230843, geschenkFuer ="Jakob"))
+        listeneintrag.add(GiftObject(id =4, name ="Helm", gekauft =false, shop ="Fahrrad.de", beschreibung = "Integralhelm", bild = 2131230843, geschenkFuer ="Konstantin"))
 
         mListeView?.adapter = ShoppingListAdapter(context!!,listeneintrag)
     }
