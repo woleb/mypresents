@@ -4,6 +4,7 @@ package com.sportoverfifty.mypresents
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,14 +48,21 @@ class UebersichtGeschenkeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val ergebnisse = GiftTableHelper(context!!).alleEintraege()
+/*        for (s in ergebnisse){
+            Log.i("test_aus","Inhalt der Rückgabe: ${s.toString()}")
+        }
+*/
+/*
         val listeneintrag = ArrayList<GiftObject>()
 //GiftObject (val id: Int, val name: String, val gekauft: Boolean, val shop: String, val beschreibung: String, val bild : Drawable, val geschenkFuer: String)
         listeneintrag.add(GiftObject(id =1, name ="Taschenlampe", gekauft = 0, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = 2131230843, geschenkFuer ="Marius"))
         listeneintrag.add(GiftObject(id =2, name ="Bett", gekauft = 0, shop ="Bettenhaus", beschreibung = "Schlaf gut", bild = 2131230843, geschenkFuer ="Wolfgang"))
         listeneintrag.add(GiftObject(id =3, name ="Fahrrad", gekauft = 0, shop ="Fahrrad.de", beschreibung = "MTB", bild =2131230843, geschenkFuer ="Jakob"))
         listeneintrag.add(GiftObject(id =4, name ="Helm", gekauft = 0, shop ="Fahrrad.de", beschreibung = "Integralhelm", bild = 2131230843, geschenkFuer ="Konstantin"))
-
-        mListeView?.adapter = ShoppingListAdapter(context!!,listeneintrag)
+*/
+        mListeView?.adapter = ShoppingListAdapter(context!!,ergebnisse)
     }
 
     companion object {

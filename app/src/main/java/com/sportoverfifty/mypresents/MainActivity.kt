@@ -47,12 +47,6 @@ class MainActivity : AppCompatActivity() {
         Log.i("test_aus","BildID: $bildId")
         val neuenDatensatz = GiftObject(id =1, name ="Taschenlampe", gekauft = 0, shop ="Alternate", beschreibung = "Lampe für's Wandern", bild = bildId, geschenkFuer ="Marius")
 
-        val dataId = GiftTableHelper(applicationContext).speichereNeuenEintrag(neuenDatensatz)
-        Log.i("test_aus","Gepeichert: $dataId")
 
-        val ergebnisse = GiftTableHelper(applicationContext).alleEintraege()
-        for (s in ergebnisse){
-            Log.i("test_aus","Inhalt der Rückgabe: ${s.toString()}")
-        }
     }
 }
