@@ -14,12 +14,12 @@ class DatabaseHelper(context: Context):SQLiteOpenHelper(context,
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(tabelle)
-        Log.i("test", "Tabelle angelegt!")
+        Log.i("test_aus", "Tabelle angelegt!")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.execSQL("DROP TABLE IF EXISTS ${databaseValues.TABLE_NAME}" )
         db?.execSQL(tabelle)
-        Log.i("test", "Tabelle gelöscht und neu angelegt!")
+        Log.i("test_aus", "Tabelle gelöscht und neu angelegt!")
     }
 }

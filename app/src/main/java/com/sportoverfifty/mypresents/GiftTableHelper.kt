@@ -16,7 +16,7 @@ class GiftTableHelper(context: Context){
         datensatz.put(databaseValues.NAME, daten.name)
         datensatz.put(databaseValues.BESCHREIBUNG,daten.beschreibung)
         datensatz.put(databaseValues.GEKAUFT,daten.gekauft)
-        datensatz.put(databaseValues.GESCHECK_FUER, daten.geschenkFuer)
+        datensatz.put(databaseValues.GESCHENCK_FUER, daten.geschenkFuer)
         datensatz.put(databaseValues.BILD_ID,daten.bild)
         datensatz.put(databaseValues.SHOP,daten.shop)
         db.beginTransaction()
@@ -32,31 +32,35 @@ class GiftTableHelper(context: Context){
             db.close()
 
         }
-        Log.i("test", "Datensatz eingefügt. $id")
+        Log.i("test_aus", "Datensatz eingefügt. $id")
         return id
 
     }
 
-    fun alleEintraege(){
+    fun alleEintraege(): ArrayList<GiftObject> {
 
-        val auswahl= arrayOf(databaseValues._ID,databaseValues.NAME,databaseValues.BESCHREIBUNG,databaseValues.BILD_ID,databaseValues.GEKAUFT,databaseValues.GESCHECK_FUER,databaseValues.SHOP)
+        val auswahl= arrayOf(databaseValues._ID,databaseValues.NAME,databaseValues.BESCHREIBUNG,databaseValues.BILD_ID,databaseValues.GEKAUFT,databaseValues.GESCHENCK_FUER,databaseValues.SHOP)
 
         val db = helper.readableDatabase
         val cursor = db.query(databaseValues.TABLE_NAME,auswahl, null, null,null,null,null)
         var giftDaten = GiftObject(0,"",0,"","",0,"")
-        Log.i("test", "Leeres Object: ${giftDaten.toString()}")
 
+        val ergebnisListe = ArrayList<GiftObject>()
         while (cursor.moveToNext()){
+            var giftDaten = GiftObject(0,"",0,"","",0,"")
             giftDaten.id = cursor.getInt(cursor.getColumnIndex(databaseValues._ID))
             giftDaten.beschreibung = cursor.getString(cursor.getColumnIndex(databaseValues.BESCHREIBUNG))
             giftDaten.bild = cursor.getInt(cursor.getColumnIndex(databaseValues.BILD_ID))
             giftDaten.gekauft = cursor.getInt(cursor.getColumnIndex(databaseValues.GEKAUFT))
-            giftDaten.geschenkFuer = cursor.getString(cursor.getColumnIndex(databaseValues.GESCHECK_FUER))
+            giftDaten.geschenkFuer = cursor.getString(cursor.getColumnIndex(databaseValues.GESCHENCK_FUER))
             giftDaten.name = cursor.getString(cursor.getColumnIndex(databaseValues.NAME))
             giftDaten.shop = cursor.getString(cursor.getColumnIndex(databaseValues.SHOP))
-            Log.i("test", "Datensatz abgerufen ${giftDaten.toString()}")
+            Log.i("test_aus", "Datensatz abgerufen ${giftDaten.toString()}")
+            ergebnisListe.add(giftDaten)
         }
+        Log.i("test_aus", "Ergebnis enthält: ${ergebnisListe.size} Objekte")
         cursor.close()
+        return ergebnisListe
     }
 
 }

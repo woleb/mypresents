@@ -19,7 +19,7 @@ object databaseValues : BaseColumns{
     val SHOP = "shop"
     val BESCHREIBUNG = "beschreibung"
     val BILD_ID = "bildid"
-    val GESCHECK_FUER = "geschkfuer"
+    val GESCHENCK_FUER = "geschenkfuer"
 
 
 }
